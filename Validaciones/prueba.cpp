@@ -1,7 +1,9 @@
 #include <iostream>
 #include <cstdlib>
 #include "validaciones.hpp"
+
 using namespace std;
+
 int main()
 {
     double numeroInt;
