@@ -11,11 +11,11 @@ int main()
     char dato[100];
     cout<<"mmm oye a ver tus patas dobles: ";
     cin>>dato;
-    numeroDouble = pedirNumDouble(dato);
+    numeroDouble = validarNumDouble(dato);
     cout<<numeroDouble + 1.5;
     cout<<"mmm oye a ver tus patas: ";
     cin>>dato;
-    numeroInt = pedirNumDouble(dato);
+    numeroInt = validarNumDouble(dato);
     cout<<numeroInt + 3;
     system("PAUSE");
     return 0;

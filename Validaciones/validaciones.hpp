@@ -6,7 +6,7 @@
 
 #pragma once
 
-double pedirNumDouble(char dato[])
+double validarNumDouble(char dato[])
 {
     double numValidado;
     bool bandera = false;
@@ -26,7 +26,7 @@ double pedirNumDouble(char dato[])
     return numValidado;
 }
 
-int pedirNumInt(char dato[])
+int validarNumInt(char dato[])
 {
     int numValidado;
     bool bandera = false;
