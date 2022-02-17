@@ -8,6 +8,7 @@
 
 double validarNumDouble(char dato[])
 {
+    //memaso
     double numValidado;
     bool bandera = false;
     do
