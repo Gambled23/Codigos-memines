@@ -1,14 +1,18 @@
 #include <iostream>
 #include <cstdlib>
-
+#include "nodo.hpp"
+#include "arbol.hpp"
 using namespace std;
+
 void menu();
+
 int main()
 {
-    
+    menu();
     system("PAUSE");
     return 0;
 }
+
 void menu()
 {
     int opc;
