@@ -3,7 +3,9 @@
 #include "nodo.hpp"
 #include "arbol.hpp"
 using namespace std;
-
+/* 
+*ESTE ES UN ARBOL BINARIO DE BUSQUEDA, PROTOTIPO MARK-I
+*/
 void menu();
 
 int main()
