@@ -8,17 +8,17 @@
 using namespace std;
 /*
 TODO Cosas para hacer en el reproductor
-Buscar una manera de asignarles numero de fila
+//Buscar una manera de asignarles numero de fila
 //Mostrar "Reproduciendo ahora"
 //Mostrar fila de reproduccion (Numero en la fila, titulo, artista, album)
 //Buscar y desplegar datos de cancion
 //Insertar canciones en siguiente (insertar inicio)
 //Insertar canciones al final de la fila (insertar final)
 Mover canciones de posicion usando su numero en la fila
-Quitar cancion de lista (eliminar)
-Siguiente cancion
-Cancion anterior
-En el main.cpp hacer
+//Quitar cancion de lista (eliminar)
+//Siguiente cancion
+//Cancion anterior
+Arreglar que si una cancion es muy larga se desfazan lo de titulo|album|artista
 */
 int numeroCanciones;
 class listaReproduccion
@@ -37,6 +37,7 @@ public:
     void eliminarLista();
     void calcularCanciones();
     void cancionAnteriorSiguiente(int);
+    void asignarIDs();
     // Operaciones visuales
     void printNowPlaying();
     void printQueue();
@@ -49,6 +50,7 @@ listaReproduccion::listaReproduccion()
 void listaReproduccion::inicializa()
 {
     currentSong = h;
+    listaReproduccion::asignarIDs();
 }
 //* *OPERACIONES
 void listaReproduccion::insertaInicio(string art, string alb, string tit)
@@ -186,6 +188,17 @@ void listaReproduccion::calcularCanciones()
         aux = aux->siguiente;
     }
 }
+void listaReproduccion::asignarIDs()
+{
+    int ID = 0;
+    nodo *aux = currentSong;
+    while (aux != nullptr)
+    {
+        aux->id = ID;
+        ID++;
+        aux = aux->siguiente;
+    }
+}
 void listaReproduccion::printNowPlaying()
 {
     cout << "\t\t\tReproduciendo ahora" << endl
@@ -212,16 +225,17 @@ void listaReproduccion::printQueue()
 }
 void listaReproduccion::cancionAnteriorSiguiente(int modo)
 {
-
     if (modo == 1) // Cancion anterior
     {
         if (currentSong->anterior)
         {
             currentSong = currentSong->anterior;
+            listaReproduccion::asignarIDs();
         }
         else
         {
             cout << "Estas al inicio de la lista\n";
+            system("PAUSE");
         }
     }
     else if (modo == 2) // Cancion siguiente
@@ -229,10 +243,12 @@ void listaReproduccion::cancionAnteriorSiguiente(int modo)
         if (currentSong->siguiente)
         {
             currentSong = currentSong->siguiente;
+            listaReproduccion::asignarIDs();
         }
         else
         {
             cout << "Estas al final de la lista\n";
+            system("PAUSE");
         }
     }
 }
