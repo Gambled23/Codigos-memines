@@ -15,9 +15,10 @@ Buscar una manera de asignarles numero de fila
 //Insertar canciones en siguiente (insertar inicio)
 //Insertar canciones al final de la fila (insertar final)
 Mover canciones de posicion usando su numero en la fila
+Quitar cancion de lista (eliminar)
 Siguiente cancion
 Cancion anterior
-En el main.cpp hacer 
+En el main.cpp hacer
 */
 int numeroCanciones;
 class listaReproduccion
@@ -28,12 +29,14 @@ public:
     nodo *t;
     nodo *currentSong;
     // Operaciones logicas
+    void inicializa();
     void insertaInicio(string, string, string);
     void insertarFinal(string, string, string);
     void buscarElemento(string);
-    void eliminarElemento(int);
+    void eliminarElemento(string);
     void eliminarLista();
     void calcularCanciones();
+    void cancionAnteriorSiguiente(int);
     // Operaciones visuales
     void printNowPlaying();
     void printQueue();
@@ -43,7 +46,10 @@ listaReproduccion::listaReproduccion()
     h = nullptr;
     t = nullptr;
 }
-
+void listaReproduccion::inicializa()
+{
+    currentSong = h;
+}
 //* *OPERACIONES
 void listaReproduccion::insertaInicio(string art, string alb, string tit)
 {
@@ -87,7 +93,7 @@ void listaReproduccion::buscarElemento(string n)
 
     while ((actual != nullptr) and (bandera)) // Mientras sigamos apuntando a un dato, y no al NULL, significa que seguimos en la lista
     {
-        if (actual->titulo == n) 
+        if (actual->titulo == n)
         {
             system("cls");
             cout << "Titulo: " << actual->titulo << endl
@@ -101,15 +107,20 @@ void listaReproduccion::buscarElemento(string n)
     {
         cout << "La cancion no existe en la lista" << endl;
     }
+        system("PAUSE");
 }
 
-void listaReproduccion::eliminarElemento(int n)
+void listaReproduccion::eliminarElemento(string n)
 {
     if (h != nullptr)
     {
         nodo *aux_borrar;
         aux_borrar = h;
-        while ((aux_borrar != nullptr) && (aux_borrar->dato != n)) // Recorrer lista
+        if (currentSong->titulo == n)
+        {
+            currentSong = h;
+        }
+        while ((aux_borrar != nullptr) && (aux_borrar->titulo != n)) // Recorrer lista
         {
             aux_borrar = aux_borrar->siguiente;
         }
@@ -121,6 +132,7 @@ void listaReproduccion::eliminarElemento(int n)
         {
             h = nullptr;
             t = h;
+            currentSong = h;
             cout << "El elemento con la ID '" << n << "' ha sido borrado\n";
             delete aux_borrar;
         }
@@ -190,12 +202,38 @@ void listaReproduccion::printNowPlaying()
 void listaReproduccion::printQueue()
 {
     listaReproduccion::printNowPlaying(); // Imprimir la cancion actual
-    nodo *aux = currentSong;
+    nodo *aux = currentSong->siguiente;
     cout << "\n\t\t\tSiguientes en la lista\n";
     while (aux != nullptr)
     {
+        cout << "\t\t\t" << aux->id << "\t" << aux->titulo << "\t" << aux->artista << "\t" << aux->album << "\n";
         aux = aux->siguiente;
-        cout << "\t\t\t" << currentSong->id << "\t" << currentSong->titulo << "\t" << currentSong->artista << "\t" << currentSong->album << "\n";
+    }
+}
+void listaReproduccion::cancionAnteriorSiguiente(int modo)
+{
+
+    if (modo == 1) // Cancion anterior
+    {
+        if (currentSong->anterior)
+        {
+            currentSong = currentSong->anterior;
+        }
+        else
+        {
+            cout << "Estas al inicio de la lista\n";
+        }
+    }
+    else if (modo == 2) // Cancion siguiente
+    {
+        if (currentSong->siguiente)
+        {
+            currentSong = currentSong->siguiente;
+        }
+        else
+        {
+            cout << "Estas al final de la lista\n";
+        }
     }
 }
 #endif
