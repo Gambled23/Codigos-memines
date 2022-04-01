@@ -14,12 +14,14 @@ public:
     string artista;
     string album;
     string titulo;
+    int id;
     nodo();
     nodo(string, string, string);
 };
 
 nodo::nodo()
 {
+    id = 0;
     artista = "";
     album = "";
     titulo = "";
@@ -28,6 +30,7 @@ nodo::nodo()
 }
 nodo::nodo(string art, string alb, string tit)
 {
+    id = 0;
     artista = art;
     album = alb;
     titulo = tit;
