@@ -57,15 +57,6 @@ void menu()
             getline(cin, auxTitulo);
             lista->eliminarElemento(auxTitulo);
             break;
-        case 5:
-            /* code */
-            break;
-        case 6:
-            /* code */
-            break;
-        case 7:
-            /* code */
-            break;
         case 0:
             cout << "Gracias por su preferencia" << endl;
             break;
