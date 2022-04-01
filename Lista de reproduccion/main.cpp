@@ -22,6 +22,11 @@ void menu()
     lista->insertarFinal("Porta","Reset","Media vida");
     lista->insertaInicio("Violadores del verso","Doble V","Marrones, coronas, morenas");
     lista->insertarFinal("SHE","Tiempo","Tiempo");
+    lista->insertarFinal("Lytos","Percepcion y perfeccion","A un par de copas");
+    lista->insertarFinal("Dante","Apeiron","Al final del camino");
+    lista->insertarFinal("SHE","Tiempo","Mama");
+    lista->insertarFinal("Dante","Apeiron","La gata en el tejado");
+    lista->insertarFinal("Rafa espino","Ineditos","Buenos dias princesa");
     lista->inicializa();
     do
     {
