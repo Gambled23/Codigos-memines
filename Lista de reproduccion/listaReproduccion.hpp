@@ -14,11 +14,11 @@ TODO Cosas para hacer en el reproductor
 //Buscar y desplegar datos de cancion
 //Insertar canciones en siguiente (insertar inicio)
 //Insertar canciones al final de la fila (insertar final)
-Mover canciones de posicion usando su numero en la fila
 //Quitar cancion de lista (eliminar)
 //Siguiente cancion
 //Cancion anterior
-Arreglar que si una cancion es muy larga se desfazan lo de titulo|album|artista
+Mover canciones de posicion usando su numero en la fila
+Arreglar que si una cancion es muy larga se desfazan lo de titulo|album|artista (Interfaz)
 */
 int numeroCanciones;
 class listaReproduccion
