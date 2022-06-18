@@ -6,7 +6,7 @@
 
 #pragma once
 
-double valideDouble(char dato[])
+double validateDouble(char dato[])
 {
     //memaso
     double numValidado;
@@ -27,7 +27,7 @@ double valideDouble(char dato[])
     return numValidado;
 }
 
-int valideInt(char dato[])
+int validateInt(char dato[])
 {
     int numValidado;
     bool bandera = false;
